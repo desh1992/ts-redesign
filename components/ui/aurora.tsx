@@ -98,10 +98,10 @@ void main() {
   float height = snoise(vec2(uv.x * 2.0 + uTime * 0.1, uTime * 0.25)) * 0.5 * uAmplitude;
   height = exp(height);
   height = (uv.y * 2.0 - height + 0.2);
-  float intensity = 0.6 * height;
+  float intensity = 0.8 * height;
   
-  float midPoint = 0.20;
-  float auroraAlpha = smoothstep(midPoint - uBlend * 0.5, midPoint + uBlend * 0.5, intensity);
+  float midPoint = 0.15;
+  float auroraAlpha = smoothstep(midPoint - uBlend * 0.3, midPoint + uBlend * 0.7, intensity);
   
   vec3 auroraColor = intensity * rampColor;
   
@@ -144,7 +144,7 @@ export default function Aurora(props: AuroraProps) {
     function resize() {
       if (!ctn) return;
       const width = ctn.offsetWidth;
-      const height = ctn.offsetHeight;
+      const height = 1000; // Increased height to 1000px for better coverage
       renderer.setSize(width, height);
       if (program) {
         program.uniforms.uResolution.value = [width, height];
@@ -169,7 +169,7 @@ export default function Aurora(props: AuroraProps) {
         uTime: { value: 0 },
         uAmplitude: { value: amplitude },
         uColorStops: { value: colorStopsArray },
-        uResolution: { value: [ctn.offsetWidth, ctn.offsetHeight] },
+        uResolution: { value: [ctn.offsetWidth, 1000] },
         uBlend: { value: blend }
       }
     });
