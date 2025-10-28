@@ -115,7 +115,7 @@ const LearningPrograms = () => {
               initial={{ opacity: 0, scale: 0 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="relative text-center"
+              className="relative text-center bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <GlowingEffect
                 spread={30}

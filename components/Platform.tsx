@@ -3,6 +3,9 @@
 import { motion } from 'framer-motion'
 import { Target, Users, GraduationCap, Users2, BookOpen, Video } from 'lucide-react'
 import { GlowingEffect } from './ui/glowing-effect'
+import { ContainerScroll } from './ui/container-scroll-animation'
+import { BentoGrid, BentoGridItem } from './ui/bento-grid'
+import Image from 'next/image'
 
 const Platform = () => {
   const platformFeatures = [
@@ -54,83 +57,93 @@ const Platform = () => {
   ]
 
   return (
-    <section id="platform" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <motion.h2
+    <section id="platform" className="bg-white">
+      <ContainerScroll
+        titleComponent={
+          <>
+            <h2 className="text-4xl font-semibold text-black dark:text-white">
+              Platform Designed For <br />
+              <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                Your Success
+              </span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mt-6">
+              Reach your full potential with Talent Share! Connect with distinguished mentors 
+              and enhance your abilities to take your career to the next level.
+            </p>
+          </>
+        }
+      >
+        <Image
+          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="Platform Dashboard"
+          height={720}
+          width={1400}
+          className="mx-auto rounded-2xl object-cover h-full object-center"
+          draggable={false}
+        />
+      </ContainerScroll>
+      
+      {/* Platform Features Section - Bento Grid */}
+      <div className="py-20 bg-gradient-to-b from-white to-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-4xl font-bold text-gray-900 mb-4"
+            className="text-center mb-16"
           >
-            Platform Designed For Your Success
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl text-gray-600 max-w-3xl mx-auto"
-          >
-            Reach your full potential with Talent Share! This is your one-stop shop for connecting 
-            with distinguished mentors with the precise skills and expertise you need to enhance 
-            your abilities and take your career to the next level.
-          </motion.p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          {platformFeatures.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="relative text-center"
-            >
-              <GlowingEffect
-                spread={25}
-                glow={true}
-                disabled={false}
-                proximity={60}
-                inactiveZone={0.2}
-                borderWidth={2}
-              />
-              <div className="relative z-10">
-                <div className={`w-16 h-16 bg-gradient-to-r ${feature.color} rounded-full flex items-center justify-center mx-auto mb-4`}>
-                  <feature.icon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          {successStories.map((story, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              whileHover={{ scale: 1.05 }}
-              className="relative bg-gray-50 rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300"
-            >
-              <GlowingEffect
-                spread={35}
-                glow={true}
-                disabled={false}
-                proximity={70}
-                inactiveZone={0.15}
-                borderWidth={2}
-              />
-              <div className="relative z-10">
-                <div className="text-4xl mb-4">{story.image}</div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{story.title}</h3>
-                <p className="text-gray-600">{story.description}</p>
-              </div>
-            </motion.div>
-          ))}
+            <h3 className="text-4xl font-bold text-gray-900 mb-4">Powerful Features</h3>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Discover the comprehensive features that make Talent Share the perfect platform for your learning journey.
+            </p>
+          </motion.div>
+          
+          <BentoGrid className="max-w-6xl mx-auto">
+            {platformFeatures.map((feature, index) => {
+              const images = [
+                "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              ];
+              
+              // Determine className based on index for layout adjustments
+              let classNameValue = '';
+              // First row (index 0, 1): increase height with row-span-2
+              if (index === 0 || index === 1) {
+                classNameValue = 'md:row-span-2';
+                // Index 1 already has col-span-2 for width
+                if (index === 1) {
+                  classNameValue += ' md:col-span-2';
+                }
+              }
+              // Second row, first element (index 2): increase width with col-span-2
+              if (index === 2) {
+                classNameValue = 'md:col-span-2';
+              }
+              
+              return (
+                <BentoGridItem
+                  key={index}
+                  title={feature.title}
+                  description={feature.description}
+                  icon={<feature.icon className="w-6 h-6 text-gray-700" />}
+                  className={classNameValue}
+                  header={
+                    <div className="relative w-full h-full overflow-hidden">
+                      <Image
+                        src={images[index]}
+                        alt={feature.title}
+                        fill
+                        className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+                      />
+                    </div>
+                  }
+                />
+              );
+            })}
+          </BentoGrid>
         </div>
       </div>
     </section>

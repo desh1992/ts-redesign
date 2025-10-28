@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { Play, UserCheck } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import Aurora from './ui/aurora'
+import RotatingText from './ui/RotatingText'
 // import GlassSurface from './ui/GlassSurface'
 
 const AuroraHero = () => {
@@ -46,29 +47,44 @@ const AuroraHero = () => {
   return (
     <div className="relative min-h-screen bg-white overflow-hidden">
       <Aurora
-        colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
+        colorStops={["#6366f1", "#8b5cf6", "#ec4899"]}
         blend={0.8}
         amplitude={1.5}
         speed={0.3}
       />
       <div className="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
-        <div className="w-full max-w-4xl">
-          <div className="liquid-glass rounded-3xl p-8 md:p-12">
+        <div className="w-full max-w-6xl">
+          <div className="bg-white/30 backdrop-blur-md rounded-3xl p-8 md:p-12 shadow-2xl border border-white/40">
             <div className="flex flex-col items-center justify-center text-center space-y-8">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="space-y-6 max-w-4xl"
+                className="space-y-6 w-full"
               >
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight"
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight whitespace-nowrap"
             >
-              <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent drop-shadow-lg">
-                Where Talent Meets Its Match
+              <span className="text-white" style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.6)' }}>
+                Where{' '}
+                <span className="px-1 sm:px-1 md:px-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white py-0.5 sm:py-0.5 md:py-1 rounded-lg inline-block" style={{ textShadow: 'none' }}>
+                  <RotatingText
+                    texts={['Talent', 'Expertise', 'Knowledge', 'Skills']}
+                    mainClassName="inline-block"
+                    staggerFrom={"last"}
+                    initial={{ y: "100%" }}
+                    animate={{ y: 0 }}
+                    exit={{ y: "-120%" }}
+                    staggerDuration={0.025}
+                    splitLevelClassName="overflow-hidden"
+                    transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                    rotationInterval={2000}
+                  />
+                </span>
+                {' '}Meets Its Match
               </span>
             </motion.h1>
 
@@ -90,17 +106,17 @@ const AuroraHero = () => {
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold text-lg flex items-center gap-2 hover:shadow-xl hover:shadow-purple-500/25 transition-all duration-300"
+                className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-6 py-3 rounded-full font-semibold text-base flex items-center gap-2 hover:shadow-xl hover:shadow-purple-500/25 transition-all duration-300"
               >
-                <Play className="w-5 h-5" />
+                <Play className="w-4 h-4" />
                 Explore Programs
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="border-2 border-purple-600 text-purple-600 px-8 py-4 rounded-xl font-semibold text-lg flex items-center gap-2 hover:bg-purple-600 hover:text-white transition-all duration-300"
+                className="border-2 border-purple-600 text-purple-600 px-6 py-3 rounded-full font-semibold text-base flex items-center gap-2 hover:bg-purple-600 hover:text-white transition-all duration-300"
               >
-                <UserCheck className="w-5 h-5" />
+                <UserCheck className="w-4 h-4" />
                 Become an Instructor
               </motion.button>
             </motion.div>

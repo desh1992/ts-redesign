@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react'
-import { DottedSurface } from './ui/dotted-surface'
+import { SparklesCore } from './ui/sparkles'
 
 const Footer = () => {
   const footerLinks = {
@@ -24,8 +24,34 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="bg-gray-900 text-white relative overflow-hidden">
-      <DottedSurface className="opacity-30" />
+    <footer className="bg-black text-white relative overflow-hidden">
+      {/* Sparkles Section - Exact replica of SparklesPreview */}
+      <div className="w-full flex flex-col items-center justify-center overflow-hidden relative pt-20">
+        <h1 className="md:text-7xl text-3xl lg:text-9xl font-bold text-center text-gray-400 opacity-60 relative z-20 [mask-image:linear-gradient(to_bottom,white_70%,transparent_70%)]" style={{ marginBottom: '-2.4rem' }}>
+          Talent Share
+        </h1>
+        <div className="w-[40rem] h-40 relative">
+          {/* Gradients */}
+          <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
+          <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
+          <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
+          <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
+
+          {/* Core component */}
+          <SparklesCore
+            background="transparent"
+            minSize={0.4}
+            maxSize={1}
+            particleDensity={1200}
+            className="w-full h-full"
+            particleColor="#FFFFFF"
+          />
+
+          {/* Radial Gradient to prevent sharp edges */}
+          <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
+        </div>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -35,7 +61,7 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-2"
           >
-            <h3 className="text-2xl font-bold gradient-text mb-4">Talent Share</h3>
+            {/* <h3 className="text-2xl font-bold gradient-text mb-4">Talent Share</h3> */}
             <p className="text-gray-400 mb-6 leading-relaxed">
               Where knowledge meets opportunity. Learn from experts, teach what you love.
             </p>
