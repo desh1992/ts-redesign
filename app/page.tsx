@@ -1,6 +1,7 @@
 import Navigation from '@/components/Navigation'
 import AuroraHero from '@/components/AuroraHero'
 import LearningBentoSection from '@/components/LearningBentoSection'
+import ZoomParallaxSection from '@/components/ZoomParallaxSection'
 import About from '@/components/About'
 import Platform from '@/components/Platform'
 import Training from '@/components/Training'
@@ -13,6 +14,7 @@ export default function Home() {
       <Navigation />
       <AuroraHero />
       <LearningBentoSection />
+      <ZoomParallaxSection />
       <About />
       <Platform />
       <Training />

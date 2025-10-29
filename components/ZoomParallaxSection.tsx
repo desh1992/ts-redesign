@@ -78,63 +78,7 @@ const ZoomParallaxSection = () => {
   return (
     <section className="relative bg-gradient-to-b from-white to-gray-50">
       {/* Introduction Section */}
-      <div className="relative flex h-[50vh] items-center justify-center bg-gradient-to-b from-white to-gray-50">
-        <div className="text-center max-w-4xl mx-auto px-4">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-4xl sm:text-5xl font-bold mb-6"
-          >
-            <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
-              Experience Learning Like Never Before
-            </span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl text-gray-600 mb-8"
-          >
-            Scroll down to explore our immersive learning environment
-          </motion.p>
-          
-          {/* Feature Icons */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 max-w-5xl mx-auto"
-          >
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                whileHover={{ scale: 1.1, y: -5 }}
-                className="relative flex flex-col items-center p-4 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <GlowingEffect
-                  spread={25}
-                  glow={true}
-                  disabled={false}
-                  proximity={60}
-                  inactiveZone={0.2}
-                  borderWidth={2}
-                />
-                <div className="relative z-10">
-                  <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full flex items-center justify-center mb-2">
-                    <feature.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-sm font-semibold text-gray-900 text-center">{feature.title}</h3>
-                  <p className="text-xs text-gray-600 text-center mt-1">{feature.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </div>
+      
 
       {/* Zoom Parallax Section */}
       <ZoomParallax images={images} />
