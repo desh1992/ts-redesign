@@ -10,25 +10,25 @@ const About = () => {
       icon: Paintbrush,
       title: 'Painting on Canvas',
       description: 'Share your artistic talents with the world',
-      color: 'from-pink-500 to-rose-500'
+      color: 'from-blue-600 to-blue-800'
     },
     {
       icon: Share2,
       title: 'Share.',
       description: 'Connect and share knowledge with others',
-      color: 'from-blue-500 to-cyan-500'
+      color: 'from-blue-600 to-blue-800'
     },
     {
       icon: Users,
       title: 'Community',
       description: 'Join a vibrant community of learners and experts',
-      color: 'from-green-500 to-emerald-500'
+      color: 'from-blue-600 to-blue-800'
     },
     {
       icon: Globe,
       title: 'Global Reach',
       description: 'Connect with talents from around the world',
-      color: 'from-purple-500 to-violet-500'
+      color: 'from-blue-600 to-blue-800'
     }
   ]
 
@@ -96,8 +96,8 @@ const About = () => {
                   borderWidth={2}
                 />
                 <div className="relative z-10">
-                  <div className={`w-12 h-12 bg-gradient-to-r ${feature.color} rounded-full flex items-center justify-center mb-4`}>
-                    <feature.icon className="w-6 h-6 text-white" />
+                  <div className="w-16 h-16 flex items-center justify-center mb-4">
+                    <feature.icon className="w-9 h-9 text-blue-600" />
                   </div>
                   <h4 className="font-semibold text-gray-900 mb-2">{feature.title}</h4>
                   <p className="text-sm text-gray-600">{feature.description}</p>

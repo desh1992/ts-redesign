@@ -6,6 +6,7 @@ import About from '@/components/About'
 import Platform from '@/components/Platform'
 import Training from '@/components/Training'
 import LearningPrograms from '@/components/LearningPrograms'
+import TalentBuffet from '@/components/TalentBuffet'
 import Footer from '@/components/Footer'
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
       <Platform />
       <Training />
       <LearningPrograms />
+      <TalentBuffet />
       <Footer />
     </main>
   )

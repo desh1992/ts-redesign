@@ -10,21 +10,18 @@ const LearningPrograms = () => {
       icon: BookOpen,
       title: 'Classes',
       description: 'Structured learning sessions with expert instructors',
-      color: 'from-blue-500 to-cyan-500',
       features: ['Interactive sessions', 'Expert guidance', 'Peer learning']
     },
     {
       icon: Users,
       title: 'Bootcamps',
       description: 'Intensive training programs for rapid skill development',
-      color: 'from-green-500 to-emerald-500',
       features: ['Intensive learning', 'Project-based', 'Career-focused']
     },
     {
       icon: Briefcase,
       title: 'Consultations',
       description: 'One-on-one sessions with industry professionals',
-      color: 'from-purple-500 to-violet-500',
       features: ['Personalized advice', 'Career guidance', 'Skill assessment']
     }
   ]
@@ -90,8 +87,8 @@ const LearningPrograms = () => {
                 borderWidth={2}
               />
               <div className="relative z-10">
-                <div className={`w-16 h-16 bg-gradient-to-r ${program.color} rounded-full flex items-center justify-center mb-6`}>
-                  <program.icon className="w-8 h-8 text-white" />
+                <div className="w-18 h-18 flex items-center justify-center mb-6">
+                  <program.icon className="w-10 h-10 text-blue-600" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">{program.title}</h3>
                 <p className="text-gray-600 mb-6">{program.description}</p>
@@ -126,8 +123,8 @@ const LearningPrograms = () => {
                 borderWidth={2}
               />
               <div className="relative z-10">
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <benefit.icon className="w-8 h-8 text-white" />
+                <div className="w-18 h-18 flex items-center justify-center mx-auto mb-4">
+                  <benefit.icon className="w-10 h-10 text-blue-600" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">{benefit.title}</h3>
                 <p className="text-gray-600">{benefit.description}</p>
